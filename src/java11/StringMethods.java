@@ -17,5 +17,10 @@ public class StringMethods {
         printBlanks(" L R ".stripTrailing());
         "Line 1\nLine 2\nLine 3\nLine 4".lines().forEach(System.out::println);
 
+        System.out.println("Hurray ".repeat(3));
+
+        // unicode 10, e.g.
+        System.out.println("\u20BF");
+
     }
 }
