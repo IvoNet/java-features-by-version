@@ -1,4 +1,4 @@
-package java16;
+//package java16;
 
 public class PatternMatchingForInstanceofDemo {
     public static void main(String[] args) {
