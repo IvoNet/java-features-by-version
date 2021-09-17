@@ -1,4 +1,4 @@
-package java15;
+//package java15;
 
 /**
  * These String methods were introduced because of the Text Block.
@@ -36,5 +36,9 @@ public class StringMethods {
                               .replace(" ", "~"));
         System.out.println(str.indent(5)
                               .replace(" ", "~"));
+
+        final var txt = "My name is %s. My age is %d.".formatted("Ivo", 35);
+        System.out.println(txt); //or printf
+
     }
 }

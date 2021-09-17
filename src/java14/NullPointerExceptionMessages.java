@@ -1,4 +1,6 @@
-package java14;
+//package java14;
+
+//java -XX:+ShowCodeDetailsInExceptionMessages NullPointerExceptionMessages.java
 
 /**
  * Better NullPointerException messages.

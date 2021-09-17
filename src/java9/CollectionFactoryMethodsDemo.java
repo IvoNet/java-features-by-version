@@ -1,4 +1,4 @@
-package java9;
+//package java9;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ public class CollectionFactoryMethodsDemo {
         }});
         System.out.println(oldWay);
 
-        final var newWay = Map.of("key1", "value1", "key2", "value2");
+        final Map<String, String> newWay = Map.of("key1", "value1", "key2", "value2");
         System.out.println(newWay);
 
 //        Set.of()
