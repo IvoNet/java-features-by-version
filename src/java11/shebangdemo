@@ -1,0 +1,16 @@
+#!/usr/local/openjdk-11/bin/java --source 11
+
+
+/**
+ * Demo's the shebang function
+ * make sure that the java executable in the shebang points to the correct location
+ * make sure the script is executabel "chmod +x script"
+ * run the script
+ */
+public class SheBangDemo {
+
+    public static void main(final String[] args) {
+        System.out.println("SheBanged yeah!!");
+    }
+
+}

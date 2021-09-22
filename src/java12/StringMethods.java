@@ -6,7 +6,7 @@ public class StringMethods {
         var str = "Line 1\nLine 2\nLine 3\nLine 4";
         System.out.println(str.indent(5));
 
-        final var transformed = str.transform(s -> Arrays.stream(s.split("is"))
+        final var transformed = str.transform(s -> Arrays.stream(s.split(" "))
                                                          .map(String::strip)
                                                          .collect(Collectors.joining(": ")));
         System.out.println(transformed);
