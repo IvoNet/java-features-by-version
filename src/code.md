@@ -141,3 +141,70 @@ public class DigitalVaultServiceClientConfig {
 //      ...
   }
 ```
+
+
+```java
+public interface Vehicle {
+    
+    String speedUp();
+    String slowDown();
+    
+    default String turnAlarmOn() {
+        return "Turning the vehicle alarm on.";
+    }
+    
+    default String turnAlarmOff() {
+        return "Turning the vehicle alarm off.";
+    }
+}
+```
+
+
+```java
+public interface Vehicle {
+    
+    // regular / default interface methods
+    
+    static int getHorsePower(int kwh, int torque) {
+        return (kwh * torque) / 4242;
+    }
+}
+```
+
+
+```java
+@FunctionalInterface
+public interface FileFilter {
+
+    boolean accept(File pathname);
+}
+```
+
+
+
+```java
+public Future<String> calculateAsync() throws InterruptedException {
+    CompletableFuture<String> completableFuture = new CompletableFuture<>();
+
+    Executors.newCachedThreadPool().submit(() -> {
+        Thread.sleep(500);
+        completableFuture.complete("Hello");
+        return null;
+    });
+
+    return completableFuture;
+}
+```
+
+
+
+```java
+CompletableFuture<String> cf1
+  = CompletableFuture.supplyAsync(() -> "Hello");
+
+CompletableFuture<String> cf2 = cf1
+  .thenApply(s -> s + " World");
+
+assertEquals("Hello World", cf2.get());
+
+```
