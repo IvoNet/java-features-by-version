@@ -1,0 +1,4 @@
+FROM amazoncorretto:16-alpine-full
+
+RUN apk add --no-cache gcc
+
