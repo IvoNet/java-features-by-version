@@ -11,9 +11,9 @@ public class RegexPatternDemo {
 
         matcher.find();
 
-        String protocol = matcher.group(1);
-        String domain   = matcher.group(2);
-        String port     = matcher.group(3);
-        String uri      = matcher.group(4);
+        System.out.println("protocol = " + matcher.group(1));
+        System.out.println("domain = " + matcher.group(2));
+        System.out.println("port = " + matcher.group(3));
+        System.out.println("uri = " + matcher.group(4));
     }
 }

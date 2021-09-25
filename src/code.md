@@ -208,3 +208,182 @@ CompletableFuture<String> cf2 = cf1
 assertEquals("Hello World", cf2.get());
 
 ```
+
+
+```java
+//final List<String> languages = List.of("Java", "Python", "Kotlin");
+final var languages = List.of("Java", "Python", "Kotlin");
+
+//final List<String> otherLanguages = List.of("COBOL", "Perl", "Pascal");
+final var otherLanguages = List.of("COBOL", "Perl", "Pascal");
+
+//final List<List<String>> combined = List.of(languages, otherLanguages);
+final var combined = List.of(languages, otherLanguages);
+
+```
+
+
+```java
+final List<String> aList = List.of("a", "b", "c");
+
+var strings = List.copyOf(aList); //returns an unmodifiable List
+strings.add("foo"); //java.lang.UnsupportedOperationException 
+```
+
+
+```java
+#!/usr/local/openjdk-11/bin/java --source 11
+
+public class SheBangDemo {
+    public static void main(final String[] args) {
+        System.out.println("SheBanged yeah!!");
+    }
+}
+
+```
+
+
+```java
+final List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+
+numbers.stream()
+       .filter(Predicate.not(number -> number % 2 == 1))
+       .forEach(System.out::println);
+```
+
+
+
+```java
+String str = "    "; // spaces only
+str.isBlank(); //true
+" L R ".strip(); //"L R"
+" L R ".stripLeading(); //"L R "
+" L R ".stripTrailing(); //" L R"
+"Line 1\nLine 2\nLine 3\nLine 4".lines().forEach(System.out::println);
+
+System.out.println("Hurray ".repeat(3));
+
+// unicode 10, e.g.
+System.out.println("\u20BF");
+```
+
+
+```java
+var client = HttpClient.newBuilder().build();
+var request = HttpRequest.newBuilder()
+                         .GET()
+                         .uri(URI.create("https://www.ivowoltring.org"))
+                         .build();
+
+var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+System.out.println(response.body());
+```
+
+
+```shell
+$ java NullPointerExceptionMessages.java
+Exception in thread "main" java.lang.NullPointerException
+	at NullPointerExceptionMessages.main(NullPointerExceptionMessages.java:19)
+	
+$ java -XX:+ShowCodeDetailsInExceptionMessages NullPointerExceptionMessages.java
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "String.length()" 
+    because "<local1>[1]" is null
+	at NullPointerExceptionMessages.main(NullPointerExceptionMessages.java:19)
+
+```
+
+```java
+public String day(final int day) {
+    return switch (day) { //switch as an expression
+        case 1, 2, 3, 4, 5 -> "weekday";
+        case 6, 7 -> "weekend";
+        default -> "unknown";
+    };
+}
+```
+
+
+```java
+final var notThis = "<html>\n" +
+      "    <body>\n" +
+      "        <p>Hello, world</p>\n" +
+      "    </body>\n" +
+      "</html>\n";
+
+final var butThis = """
+      <html>
+          <body>
+              <p>Hello, world</p>
+          </body>
+      </html>
+      """;
+```
+
+
+
+```java
+Object str = "===Hello, World!===";
+//Assign to 's' and use it immediately
+if (str instanceof String s && s.startsWith("===")) {
+    //use the assigned 's' as a String in scope.
+    System.out.println(s.replace("=", "")); 
+}
+```
+
+
+```java
+/**
+ * Simple record
+ */
+record Person(String name, String twitterHandle) {}
+```
+
+
+```java
+final var numbers = List.of("1", "2", "3", "4", "5");
+final var oldWay = numbers.stream()
+                          .map(Integer::valueOf)
+                          .collect(Collectors.toList()); //Collectors.toUnmodifiableList()
+
+final var newWay = numbers.stream()
+                          .map(Integer::valueOf)
+                          .toList(); //often used so convenience
+```
+
+
+```java
+//Read File content into a string
+var content = Files.readString(Path.of("./helloworld.c"));
+//Some changes
+      
+//Write content to fole
+Files.writeString(Path.of("./helloworld.cpp"), content);
+```
+
+
+```java
+public sealed class Fruit permits Orange, Apple {}
+
+public non-sealed class Apple extends Fruit {}
+public non-sealed class Orange extends Fruit {}
+public non-sealed class Tomato extends Fruit {}
+
+/*
+javac Fruit.java Apple.java Orange.java Tomato.java
+Tomato.java:3: error: class is not allowed to extend sealed 
+class: Fruit (as it is not listed in its permits clause)
+public non-sealed class Tomato extends Fruit {}
+                  ^
+1 error
+*/
+
+```
+
+
+```java
+RandomGenerator rng1 = RandomGeneratorFactory.of("Random").create(42); // new way
+RandomGenerator rng2 = new Random(42); // old way
+RandomGenerator rng3 = RandomGeneratorFactory.getDefault().create(42); // new default
+RandomGenerator rng4 = RandomGenerator.getDefault(); // shortcut to new default
+
+```

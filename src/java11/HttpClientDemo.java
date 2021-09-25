@@ -8,14 +8,14 @@ import java.net.http.HttpResponse;
 
 public class HttpClientDemo {
     public static void main(final String[] args) throws IOException, InterruptedException {
-        final var client = HttpClient.newBuilder()
-                                     .build();
-        final var request = HttpRequest.newBuilder()
-                                       .GET()
-                                       .uri(URI.create("https://www.ivowoltring.org"))
-                                       .build();
+        var client = HttpClient.newBuilder()
+                               .build();
+        var request = HttpRequest.newBuilder()
+                                 .GET()
+                                 .uri(URI.create("https://www.ivowoltring.org"))
+                                 .build();
 
-        final var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        var response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
     }
 }

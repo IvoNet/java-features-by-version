@@ -12,7 +12,7 @@ public class GenericsDemo {
          = new HashMap<String, List<Map<String, Map<String, Integer>>>>();
 
         //java 1.7
-        Map<String, List<Map<String, Map<String, Integer>>>> things
+        Map<String, List<Map<String, Map<String, Integer>>>> things2
          = new HashMap<>();
 
 
