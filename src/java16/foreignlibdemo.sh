@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# tested with the standard openjdk docker image (./openjdk.sh 16)
+
 #apt-get update
 #apt-get install -y gcc
 

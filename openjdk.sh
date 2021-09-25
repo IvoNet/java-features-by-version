@@ -2,8 +2,9 @@
 
 if [ -z "$1" ]; then
   echo "Please provide the version you want to demo..."
+  echo "Please not that openjdk does not support versions of java before 7."
   echo "e.g."
-  echo "jstart.sh 12"
+  echo "openjdk.sh 12"
   exit 1
 fi
 
