@@ -1,4 +1,3 @@
-package java17;
 
 import jdk.incubator.vector.*;
 

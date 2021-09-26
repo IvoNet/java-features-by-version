@@ -1,4 +1,3 @@
-//package java17;
 
 public non-sealed class Tomato extends Fruit {
 }

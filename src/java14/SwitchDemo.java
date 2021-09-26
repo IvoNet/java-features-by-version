@@ -1,6 +1,4 @@
 
-//package java14;
-
 public class SwitchDemo {
 
     public static void main(final String[] args) {

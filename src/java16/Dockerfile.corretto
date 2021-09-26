@@ -2,3 +2,6 @@ FROM amazoncorretto:16-alpine-full
 
 RUN apk add --no-cache gcc
 
+
+# docker build -f Dockerfile.corretto -t ivonet/corretto:16 .
+# docker push ivonet/corretto:16

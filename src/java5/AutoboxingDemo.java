@@ -1,4 +1,3 @@
-package java5;
 
 public class AutoboxingDemo {
     public static void main(String args[]) {

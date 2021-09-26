@@ -1,5 +1,3 @@
-package java17;
-
 import java.util.Random;
 import java.util.random.RandomGenerator;
 import java.util.random.RandomGeneratorFactory;
@@ -10,8 +8,8 @@ public class PseudoRandomGeneratorDemo {
                               .map(fac -> fac.group() + ":" + fac.name()
                                     + " {"
                                     + (fac.isSplittable() ? " splitable" : "")
-                                    + (fac.isStreamable() ? " streamable" : "")
                                     + (fac.isJumpable() ? " jumpable" : "")
+                                    + (fac.isStreamable() ? " streamable" : "")
                                     + (fac.isArbitrarilyJumpable() ? " arbitrary-jumpable" : "")
                                     + (fac.isLeapable() ? " leapable" : "")
                                     + (fac.isHardware() ? " hardware" : "")

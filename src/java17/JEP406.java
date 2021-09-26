@@ -1,4 +1,3 @@
-package java17;
 
 //java --enable-preview --source 17 JEP406.java
 

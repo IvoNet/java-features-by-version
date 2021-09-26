@@ -1,4 +1,3 @@
-//package java14;
 
 //java -XX:+ShowCodeDetailsInExceptionMessages NullPointerExceptionMessages.java
 

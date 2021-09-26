@@ -1,4 +1,3 @@
-//package java16;
 
 
 class Person {

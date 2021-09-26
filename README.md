@@ -1,4 +1,4 @@
-# Dive into Java space
+# Java features by version
 
 A lot of demo's of java features by version.
 
@@ -7,19 +7,38 @@ If you open this project in an IDE like IntelliJ or Eclipse you will get a lot
 of errors.
 This comes from the fact that many features need a specific version of java or 
 special options added to the commands.
-the folders starting with java<version> are not packages.
+the folders starting with java<version> are NOT packages but the base folder for the code within.
 
 # Usage
 
-Start a docker with the correct jdk by using:
+I have included two ways of trying out most of the code. 
+I have no guaranties for any version before version 7 (1.7) as I could not find docker images for these
+anymore.
+
+You can try out the code with the amazon corretto images or the standard openjdk versions.
+Some code will not work with either the one or the other as they may not have included some features in ther
+distribution.
+
+For version 16 I have included a special build of my onw based on the openjdk:16-slim build to inlcude the 
+gcc compiler to test one of the features introduced in that version.
+
+
+Start a specific version like this:
 
 ```shell
-# ./jstart [version]
-# e.g.
-./jstart.sh 15
+./openjdk.sh <version>
 # or
-./jstart.sh 17
+./corretto.sh <version>
 ```
+
+e.g. to start trying out the java 16 stuff
+
+```shell
+./openjdks.sh 16
+# or
+./corretto.sh 16
+```
+
 
 # License
 

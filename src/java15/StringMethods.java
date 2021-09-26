@@ -1,4 +1,3 @@
-//package java15;
 
 /**
  * These String methods were introduced because of the Text Block.

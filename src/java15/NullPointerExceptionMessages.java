@@ -1,4 +1,3 @@
-package java15;
 
 //java NullPointerExceptionMessages.java
 

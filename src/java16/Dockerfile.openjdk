@@ -5,3 +5,5 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# docker build -f Dockerfile.openjdk -t ivonet/openjdk:16 .
+# docker push ivonet/openjdk:16

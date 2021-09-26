@@ -1,4 +1,3 @@
-package java1_5;
 
 class Address {
     private String street;

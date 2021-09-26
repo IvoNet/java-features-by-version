@@ -1,4 +1,3 @@
-//package java11;
 
 public class StringMethods {
 
