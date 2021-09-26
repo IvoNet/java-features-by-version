@@ -9,6 +9,10 @@ This comes from the fact that many features need a specific version of java or
 special options added to the commands.
 the folders starting with java<version> are NOT packages but the base folder for the code within.
 
+# Prerequisites
+
+* [Docker](https://docs.docker.com/get-docker/) installed
+
 # Usage
 
 I have included two ways of trying out most of the code. 
@@ -38,6 +42,18 @@ e.g. to start trying out the java 16 stuff
 # or
 ./corretto.sh 16
 ```
+
+# Troubleshooting
+
+If the scripts do not work you are either on a Windows machine, and you may have to adjust them (please make a Pull Request if you do) or the scripts are not executable.
+
+* Fix:
+* open a shell in the projct folder
+```shell
+chmod +x *.sh
+```
+* Try again :-)
+
 
 
 # License
