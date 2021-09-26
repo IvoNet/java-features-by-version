@@ -387,3 +387,22 @@ RandomGenerator rng3 = RandomGeneratorFactory.getDefault().create(42); // new de
 RandomGenerator rng4 = RandomGenerator.getDefault(); // shortcut to new default
 
 ```
+
+
+
+```java
+abstract class NextExpression implements CompiledExpression {
+    final CompiledExpression right;
+    NextExpression(final CompiledExpression right) {
+        this.right = right;
+    }
+}
+if (token.equalsIgnoreCase(NOT_OPERATOR)) {
+    return compile(new NextExpression(compile(null)) {
+        @Override
+        public boolean matches(final List<String> words) {
+            return !this.right.matches(words);;
+        }
+    });
+}
+```
