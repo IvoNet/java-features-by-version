@@ -22,19 +22,13 @@ Map<String, List<Map<String, Map<String, Integer>>>>things
 ```
 
 ```java
-//We write
-Integer number=100;
-
-//what happens behind the scenes (<1.5)
-      Integer number=Integer.valueOf(100);
-
 // We write
-      Integer num2=new Integer(50);
-      int inum=num2;
+Integer num2 = 50;
+int inum = num2;
 
 //what happens behind the scenes (<1.5)
-      Integer num2=new Integer(50);
-      int inum=num2.intValue();
+Integer num2 = new Integer(50);
+int inum = num2.intValue();
 ```
 
 ```java
@@ -356,7 +350,7 @@ final var newWay = numbers.stream()
 var content = Files.readString(Path.of("./helloworld.c"));
 //Some changes
       
-//Write content to fole
+//Write content to file
 Files.writeString(Path.of("./helloworld.cpp"), content);
 ```
 
