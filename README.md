@@ -47,7 +47,7 @@ e.g. to start trying out the java 16 stuff
 
 If the scripts do not work you are either on a Windows machine, and you may have to adjust them (please make a Pull Request if you do) or the scripts are not executable.
 
-* Fix:
+Fix:
 * open a shell in the projct folder
 ```shell
 chmod +x *.sh
