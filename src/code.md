@@ -385,18 +385,48 @@ RandomGenerator rng4 = RandomGenerator.getDefault(); // shortcut to new default
 
 
 ```java
-abstract class NextExpression implements CompiledExpression {
-    final CompiledExpression right;
-    NextExpression(final CompiledExpression right) {
-        this.right = right;
+public class AnonymousClassesDemo {
+    interface Demo {
+        String accept(String param);
+    }
+    public static void main(String[] args) {
+        Demo demo = new Demo() {
+                @Override
+                public String accept(final String param) {
+                    return "Hello " + param;
+                }
+            };
+        System.out.println(demo.accept("world."));
     }
 }
-if (token.equalsIgnoreCase(NOT_OPERATOR)) {
-    return compile(new NextExpression(compile(null)) {
-        @Override
-        public boolean matches(final List<String> words) {
-            return !this.right.matches(words);;
-        }
-    });
+```
+
+```java
+public class InnerClassDemo {
+    public static void main(String[] args) {
+        OuterClass myOuter = new OuterClass();
+        OuterClass.InnerClass myInner = myOuter.new InnerClass();
+        System.out.println(myInner.y + myOuter.x);
+    }
 }
+class OuterClass {
+    int x = 10;
+    class InnerClass {
+        int y = 5;
+    }
+}
+```
+
+
+```java
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class DateTimeFormatterPeriodOfDayDemo {
+    public static void main(String[] args) {
+        System.out.println(DateTimeFormatter.ofPattern("B")
+                                            .format(LocalTime.now()));
+    }
+}
+//in the afternoon
 ```
