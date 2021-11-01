@@ -23,12 +23,12 @@ Map<String, List<Map<String, Map<String, Integer>>>>things
 
 ```java
 // We write
-Integer num2 = 50;
-int inum = num2;
+Integer num2=50;
+      int inum=num2;
 
 //what happens behind the scenes (<1.5)
-Integer num2 = new Integer(50);
-int inum = num2.intValue();
+      Integer num2=new Integer(50);
+      int inum=num2.intValue();
 ```
 
 ```java
@@ -123,50 +123,52 @@ converted.addAll(epub.getAuthors()
 ```
 
 ```java
+
 @Configuration
 @RequiredArgsConstructor
 @EnableConfigurationProperties(DigitalVaultServiceServiceClientProperties.class)
 public class DigitalVaultServiceClientConfig {
 
-  @Getter private final DigitalVaultServiceServiceClientProperties properties;
+    @Getter
+    private final DigitalVaultServiceServiceClientProperties properties;
 
-  @Bean
-  public RestTemplate digitalVaultRestTemplate() {
+    @Bean
+    public RestTemplate digitalVaultRestTemplate() {
 //      ...
-  }
+    }
 ```
-
 
 ```java
 public interface Vehicle {
-    
+
     String speedUp();
+
     String slowDown();
-    
+
     default String turnAlarmOn() {
         return "Turning the vehicle alarm on.";
     }
-    
+
     default String turnAlarmOff() {
         return "Turning the vehicle alarm off.";
     }
 }
 ```
 
-
 ```java
 public interface Vehicle {
-    
+
     // regular / default interface methods
-    
-    static int getHorsePower(int kwh, int torque) {
+
+    static int getHorsePower(int kwh,
+                             int torque) {
         return (kwh * torque) / 4242;
     }
 }
 ```
 
-
 ```java
+
 @FunctionalInterface
 public interface FileFilter {
 
@@ -174,56 +176,49 @@ public interface FileFilter {
 }
 ```
 
-
-
 ```java
-public Future<String> calculateAsync() throws InterruptedException {
-    CompletableFuture<String> completableFuture = new CompletableFuture<>();
+public Future<String> calculateAsync()throws InterruptedException{
+      CompletableFuture<String> completableFuture=new CompletableFuture<>();
 
-    Executors.newCachedThreadPool().submit(() -> {
-        Thread.sleep(500);
-        completableFuture.complete("Hello");
-        return null;
-    });
+      Executors.newCachedThreadPool().submit(()->{
+      Thread.sleep(500);
+      completableFuture.complete("Hello");
+      return null;
+      });
 
-    return completableFuture;
-}
+      return completableFuture;
+      }
 ```
-
-
 
 ```java
 CompletableFuture<String> cf1
-  = CompletableFuture.supplyAsync(() -> "Hello");
+      =CompletableFuture.supplyAsync(()->"Hello");
 
-CompletableFuture<String> cf2 = cf1
-  .thenApply(s -> s + " World");
+      CompletableFuture<String> cf2=cf1
+      .thenApply(s->s+" World");
 
-assertEquals("Hello World", cf2.get());
+      assertEquals("Hello World",cf2.get());
 
 ```
-
 
 ```java
 //final List<String> languages = List.of("Java", "Python", "Kotlin");
-final var languages = List.of("Java", "Python", "Kotlin");
+final var languages=List.of("Java","Python","Kotlin");
 
 //final List<String> otherLanguages = List.of("COBOL", "Perl", "Pascal");
-final var otherLanguages = List.of("COBOL", "Perl", "Pascal");
+final var otherLanguages=List.of("COBOL","Perl","Pascal");
 
 //final List<List<String>> combined = List.of(languages, otherLanguages);
-final var combined = List.of(languages, otherLanguages);
+final var combined=List.of(languages,otherLanguages);
 
 ```
-
 
 ```java
-final List<String> aList = List.of("a", "b", "c");
+final List<String> aList=List.of("a","b","c");
 
-var strings = List.copyOf(aList); //returns an unmodifiable List
-strings.add("foo"); //java.lang.UnsupportedOperationException 
+      var strings=List.copyOf(aList); //returns an unmodifiable List
+      strings.add("foo"); //java.lang.UnsupportedOperationException 
 ```
-
 
 ```java
 #!/usr/local/openjdk-11/bin/java --source 11
@@ -236,43 +231,38 @@ public class SheBangDemo {
 
 ```
 
-
 ```java
-final List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+final List<Integer> numbers=List.of(1,2,3,4,5);
 
-numbers.stream()
-       .filter(Predicate.not(number -> number % 2 == 1))
-       .forEach(System.out::println);
+      numbers.stream()
+      .filter(Predicate.not(number->number%2==1))
+      .forEach(System.out::println);
 ```
 
-
-
 ```java
-String str = "    "; // spaces only
-str.isBlank(); //true
-" L R ".strip(); //"L R"
-" L R ".stripLeading(); //"L R "
-" L R ".stripTrailing(); //" L R"
-"Line 1\nLine 2\nLine 3\nLine 4".lines().forEach(System.out::println);
+String str="    "; // spaces only
+      str.isBlank(); //true
+      " L R ".strip(); //"L R"
+      " L R ".stripLeading(); //"L R "
+      " L R ".stripTrailing(); //" L R"
+      "Line 1\nLine 2\nLine 3\nLine 4".lines().forEach(System.out::println);
 
-System.out.println("Hurray ".repeat(3));
+      System.out.println("Hurray ".repeat(3));
 
 // unicode 10, e.g.
-System.out.println("\u20BF");
+      System.out.println("\u20BF");
 ```
-
 
 ```java
-var client = HttpClient.newBuilder().build();
-var request = HttpRequest.newBuilder()
-                         .GET()
-                         .uri(URI.create("https://www.ivowoltring.org"))
-                         .build();
+var client=HttpClient.newBuilder().build();
+      var request=HttpRequest.newBuilder()
+      .GET()
+      .uri(URI.create("https://www.ivowoltring.org"))
+      .build();
 
-var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
+      var response=client.send(request,HttpResponse.BodyHandlers.ofString());
+      System.out.println(response.body());
 ```
-
 
 ```shell
 $ java NullPointerExceptionMessages.java
@@ -287,24 +277,23 @@ Exception in thread "main" java.lang.NullPointerException: Cannot invoke "String
 ```
 
 ```java
-public String day(final int day) {
-    return switch (day) { //switch as an expression
-        case 1, 2, 3, 4, 5 -> "weekday";
-        case 6, 7 -> "weekend";
-        default -> "unknown";
-    };
-}
+public String day(final int day){
+      return switch(day){ //switch as an expression
+      case 1,2,3,4,5->"weekday";
+      case 6,7->"weekend";
+default ->"unknown";
+      };
+      }
 ```
 
-
 ```java
-final var notThis = "<html>\n" +
-      "    <body>\n" +
-      "        <p>Hello, world</p>\n" +
-      "    </body>\n" +
+final var notThis="<html>\n"+
+      "    <body>\n"+
+      "        <p>Hello, world</p>\n"+
+      "    </body>\n"+
       "</html>\n";
 
-final var butThis = """
+final var butThis="""
       <html>
           <body>
               <p>Hello, world</p>
@@ -313,54 +302,56 @@ final var butThis = """
       """;
 ```
 
-
-
 ```java
-Object str = "===Hello, World!===";
+Object str="===Hello, World!===";
 //Assign to 's' and use it immediately
-if (str instanceof String s && s.startsWith("===")) {
-    //use the assigned 's' as a String in scope.
-    System.out.println(s.replace("=", "")); 
-}
+      if(str instanceof String s&&s.startsWith("===")){
+      //use the assigned 's' as a String in scope.
+      System.out.println(s.replace("=",""));
+      }
 ```
-
 
 ```java
 /**
  * Simple record
  */
-record Person(String name, String twitterHandle) {}
+record Person(String name, String twitterHandle) {
+}
 ```
-
 
 ```java
-final var numbers = List.of("1", "2", "3", "4", "5");
-final var oldWay = numbers.stream()
-                          .map(Integer::valueOf)
-                          .collect(Collectors.toList()); //Collectors.toUnmodifiableList()
+final var numbers=List.of("1","2","3","4","5");
+final var oldWay=numbers.stream()
+      .map(Integer::valueOf)
+      .collect(Collectors.toList()); //Collectors.toUnmodifiableList()
 
-final var newWay = numbers.stream()
-                          .map(Integer::valueOf)
-                          .toList(); //often used so convenience
+final var newWay=numbers.stream()
+      .map(Integer::valueOf)
+      .toList(); //often used so convenience
 ```
-
 
 ```java
 //Read File content into a string
-var content = Files.readString(Path.of("./helloworld.c"));
+var content=Files.readString(Path.of("./helloworld.c"));
 //Some changes
-      
+
 //Write content to file
-Files.writeString(Path.of("./helloworld.cpp"), content);
+      Files.writeString(Path.of("./helloworld.cpp"),content);
 ```
 
-
 ```java
-public sealed class Fruit permits Orange, Apple {}
+public sealed class Fruit permits Orange,
+                                  Apple {
+}
 
-public non-sealed class Apple extends Fruit {}
-public non-sealed class Orange extends Fruit {}
-public non-sealed class Tomato extends Fruit {}
+public non-sealed class Apple extends Fruit {
+}
+
+public non-sealed class Orange extends Fruit {
+}
+
+public non-sealed class Tomato extends Fruit {
+}
 
 /*
 javac Fruit.java Apple.java Orange.java Tomato.java
@@ -373,29 +364,27 @@ public non-sealed class Tomato extends Fruit {}
 
 ```
 
-
 ```java
-RandomGenerator rng1 = RandomGeneratorFactory.of("Random").create(42); // new way
-RandomGenerator rng2 = new Random(42); // old way
-RandomGenerator rng3 = RandomGeneratorFactory.getDefault().create(42); // new default
-RandomGenerator rng4 = RandomGenerator.getDefault(); // shortcut to new default
+RandomGenerator rng1=RandomGeneratorFactory.of("Random").create(42); // new way
+      RandomGenerator rng2=new Random(42); // old way
+      RandomGenerator rng3=RandomGeneratorFactory.getDefault().create(42); // new default
+      RandomGenerator rng4=RandomGenerator.getDefault(); // shortcut to new default
 
 ```
-
-
 
 ```java
 public class AnonymousClassesDemo {
     interface Demo {
         String accept(String param);
     }
+
     public static void main(String[] args) {
         Demo demo = new Demo() {
-                @Override
-                public String accept(final String param) {
-                    return "Hello " + param;
-                }
-            };
+            @Override
+            public String accept(final String param) {
+                return "Hello " + param;
+            }
+        };
         System.out.println(demo.accept("world."));
     }
 }
@@ -409,14 +398,15 @@ public class InnerClassDemo {
         System.out.println(myInner.y + myOuter.x);
     }
 }
+
 class OuterClass {
     int x = 10;
+
     class InnerClass {
         int y = 5;
     }
 }
 ```
-
 
 ```java
 import java.time.LocalTime;
@@ -429,4 +419,41 @@ public class DateTimeFormatterPeriodOfDayDemo {
     }
 }
 //in the afternoon
+```
+
+```java
+import static java.lang.System.out;  //Static imports
+
+public class VarArgsDemo {
+    public void varargs(Integer first,
+                        String... args) { // String... as vararg
+        out.println("first = " + first);
+        for (final String arg : args) { //for each enhanced for loop
+            out.println("arg = " + arg);
+        }
+    }
+
+    public static void main(String... args) { //String... as vararg
+        VarArgsDemo demo = new VarArgsDemo();
+        demo.varargs(42, args);
+    }
+}
+```
+
+```java
+import javax.swing.*;
+public class JPackageDemo {
+    private static void createAndShowGUI() {
+        final JFrame frame = new JFrame("Hello, world!");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(200, 100);
+        final JLabel label = new JLabel("Hello, JFall 2021");
+        frame.getContentPane().add(label);
+        frame.setVisible(true);
+    }
+
+    public static void main(final String[] args) {
+        javax.swing.SwingUtilities.invokeLater(JPackageDemo::createAndShowGUI);
+    }
+}
 ```
