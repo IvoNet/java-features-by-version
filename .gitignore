@@ -8,3 +8,5 @@ target
 *.o
 *.so
 helloworld.txt
+out/
+*.jar
