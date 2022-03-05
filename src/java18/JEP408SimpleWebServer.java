@@ -1,3 +1,5 @@
+package java18;
+
 import java.net.InetSocketAddress;
 import java.nio.file.Path;
 import com.sun.net.httpserver.SimpleFileServer;
@@ -5,15 +7,15 @@ import static com.sun.net.httpserver.SimpleFileServer.OutputLevel;
 
 /**
  * A Simple Static WebServer
- *
- * Snippet you write yourself
+ * <br/>
+ * Snippet you write yourself:
  *
  * {@snippet :
  *  var server = com.sun.net.httpserver.SimpleFileServer.createFileServer(new InetSocketAddress(8000),
  *               Path.of("/src"), com.sun.net.httpserver.SimpleFileServer.OutputLevel.VERBOSE);
  *  server.start();
  * }
- *
+ * <br/>
  * Snippet referenced in the code:
  * {@snippet class="JEP408SimpleWebServer" region="example"}
  */
