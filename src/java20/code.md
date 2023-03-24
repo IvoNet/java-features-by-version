@@ -80,11 +80,82 @@ return switch (o) {
 };
 ```
 ```java
-
+import java.lang.foreign.*;
+import java.lang.invoke.MethodHandle;
+public class JEP434 {
+  public static void main(String[] args) throws Throwable {
+    // 1. Get a lookup object for commonly used libraries
+    SymbolLookup stdlib = Linker.nativeLinker().defaultLookup();
+    // 2. Get a handle to the "strlen" function in the C standard library
+    MethodHandle strlen = Linker.nativeLinker().downcallHandle(
+            stdlib.find("strlen").orElseThrow(),
+            FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS));
+    // 3. Convert Java String to C string and store it in off-heap memory
+    try (Arena offHeap = Arena.openConfined()) {
+        MemorySegment str = offHeap.allocateUtf8String("Java Magazine Rockz!");
+        // 4. Invoke the foreign function
+        long len = (long) strlen.invoke(str);
+        System.out.println("len = " + len);
+    }
+    // 5. Off-heap memory is deallocated at end of try-with-resources
+  }
+}
 ```
+```shell
+$ javac --enable-preview --source 20 JEP434.java
+Note: JEP434.java uses preview features of Java SE 20.
+Note: Recompile with -Xlint:preview for details.
+$ java --enable-preview --enable-native-access=ALL-UNNAMED JEP434
+len = 20
+```
+      
+
+OpenJDK JEP 432: Record Patterns is an enhancement proposal for the Java programming language that aims to improve the expressiveness and readability of code that deals with records.
+
+A record is a new feature introduced in JDK 14 that allows for the creation of classes that are essentially immutable data containers. They are similar to tuples in other programming languages. A record has a fixed set of components (fields), which are declared in its constructor parameters, and can have methods like any other class.
+
+Record patterns refer to the use of records in a switch statement. Currently, only constant expressions and enum values can be used in switch statements. With record patterns, switch statements can match records based on their components, making it easier to write concise and readable code.
+
+For example, consider the following code:
+
+```java 
+public void processVehicle(Vehicle vehicle) {
+    switch (vehicle) {
+        case Car car:
+            processCar(car);
+            break;
+        case Truck truck:
+            processTruck(truck);
+            break;
+        case Motorcycle bike:
+            processMotorcycle(bike);
+            break;
+        default:
+            throw new IllegalArgumentException("Unknown vehicle type!");
+    }
+}
+```
+
+With record patterns, this can be simplified as follows:
+
 ```java
-
+public void processVehicle(Vehicle vehicle) {
+    switch (vehicle) {
+        case Car(String model, int year, Color color):
+            processCar(model, year, color);
+            break;
+        case Truck(String model, int year, int payload):
+            processTruck(model, year, payload);
+            break;
+        case Motorcycle(String model, int year, boolean isElectric):
+            processMotorcycle(model, year, isElectric);
+            break;
+        default:
+            throw new IllegalArgumentException("Unknown vehicle type!");
+    }
+}
 ```
-```java
 
-```
+Here, the switch statement is matching the components of the record and passing them as arguments to the corresponding method. This makes the code more concise and easier to understand.
+
+Overall, record patterns will make working with records in Java more intuitive and improve the readability of code that uses them.
