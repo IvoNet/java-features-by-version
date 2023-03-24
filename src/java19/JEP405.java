@@ -3,6 +3,7 @@ package java19;
 public class JEP405 {
     record Point(int x, int y) {}
 
+
     static void printSumOld(Object o) {
         if (o instanceof Point p) {
             int x = p.x();
