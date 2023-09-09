@@ -9,7 +9,7 @@ $ javadoc --snippet-path . -d doc JEP408SimpleWebServer.java
 $ jwebserver -b 0.0.0.0 -p 8000
 ```
 
-- open http://localhost:8000/doc
+- open http://localhost:8888/doc (note 8888 as from host to container it is 8888:8000)
 
 
 ![](JEP413.png)

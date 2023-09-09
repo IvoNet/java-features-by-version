@@ -13,6 +13,9 @@ import static com.sun.net.httpserver.SimpleFileServer.OutputLevel;
  */
 public class JEP408SimpleWebServer {
 
+    /**
+     * Start the server.
+     */
     public static void main(String[] args) {
         // @start region="example"
         var server = SimpleFileServer.createFileServer(

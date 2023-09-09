@@ -1,5 +1,11 @@
+```shell
+$ docker run -it --rm \
+      -v $(pwd)/src:/src \
+      openjdk:20-slim /bin/bash
+$ cd /src/java20
+```
+
 ```java
-package java20;
 import jdk.incubator.concurrent.*;
 public class JEP429 {
     private static final ScopedValue<String> USERNAME = ScopedValue.newInstance();
@@ -16,15 +22,12 @@ Duke
 Ivo
 ```
 ```java
-package java20;
-
 public class JEP432 {
     record Pair(Object x, Object y) { }
     record Point(int x, int y) {}
     enum Color { RED, GREEN, BLUE }
     record ColoredPoint(Point p, Color c) {}
     record Rectangle(ColoredPoint upperLeft, ColoredPoint lowerRight) {}
-
     public static void noMatchExample() {
         Pair p = new Pair(42, 42);
         System.out.println("p instanceof Pair(String s, String t) -> "
@@ -54,8 +57,6 @@ public class JEP432 {
         dump(new Point[] { new Point(1, 2), new Point(3, 4) });
     }
 }
-
-
 ```
 ```shell
 $ java --enable-preview --source 20 JEP432.java
