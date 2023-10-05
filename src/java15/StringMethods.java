@@ -36,8 +36,7 @@ public class StringMethods {
         System.out.println(str.indent(5)
                               .replace(" ", "~"));
 
-        final var txt = "My name is %s. My age is %d.".formatted("Ivo", 35);
+        final var txt = "My name is %s. My age is hex %h.".formatted("Ivo", 51);
         System.out.println(txt); //or printf
-
     }
 }
