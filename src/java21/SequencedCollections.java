@@ -3,9 +3,9 @@ package java21;
 import java.util.List;
 
 /**
- * 431:	Sequenced Collections
+ * JEP 431:	Sequenced Collections
  */
-public class JEP431 {
+public class SequencedCollections {
 
     void firstLastForList(){
         List<String> items = List.of("first", "second", "third");
@@ -41,9 +41,9 @@ public class JEP431 {
     }
 
     public static void main(String[] args) {
-        JEP431 jep431 = new JEP431();
-        jep431.firstLastForList();
-        jep431.reverseForList();
+        var sequencedCollections = new SequencedCollections();
+        sequencedCollections.firstLastForList();
+        sequencedCollections.reverseForList();
 
     }
 

@@ -1,3 +1,7 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class TextBlocks {
     public static void main(final String[] args) {
@@ -23,5 +27,19 @@ public class TextBlocks {
               ORDER BY `EMP_ID`, `LAST_NAME`;
               """;
         System.out.println(query);
+
+        final var specialStuffLikeTrailingSpacesAndContinuationSign = """
+                text with trailing spaces \s
+                combined lines from \
+                two lines\t
+                fiets
+                """;
+        try {
+            Files.write(Paths.get("./specialStuff.txt"), specialStuffLikeTrailingSpacesAndContinuationSign.getBytes());
+            System.out.println("Wrote to specialStuff.txt");
+            System.out.println("$ cat specialStuff.txt |sed \"s/ /~/g\"|sed \"s/\\t/@/g\"");
+        } catch (final IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

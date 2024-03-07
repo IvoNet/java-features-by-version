@@ -7,6 +7,6 @@ public class JEP451 {
 
 
     public static void main(String[] args) {
-        System.out.println("JEP431");
+        System.out.println("SequencedCollections");
     }
 }

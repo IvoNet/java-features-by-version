@@ -43,7 +43,7 @@ public class SwitchDemo {
         return switch (day) { //switch as an expression
             case 1, 2, 3, 4, 5 -> "weekday";
             case 6, 7 -> "weekend";
-            default -> "unknown";
+            default -> "unknown"; //or throw error
         };
     }
 
