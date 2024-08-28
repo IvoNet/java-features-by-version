@@ -42,3 +42,47 @@ public class JEP454 {
 }
 
 ```
+
+
+```java
+// a few simple examples
+try {
+    int number = Integer.parseInt(args[0]);
+} catch (NumberFormatException _) { // _ is a valid identifier
+    System.out.println("Please enter a valid number");
+}
+
+map.computeIfAbsent("key", k -> new ArrayList<>()).add("value");
+// becomes
+map.computeIfAbsent("key", _ -> new ArrayList<>()).add("value");
+
+```
+
+
+```java
+//Greetings.java
+public class Greetings {
+    public String greet(String name) {
+        return "Hello, " + name + "!";
+    }
+}
+//JEP458.java
+public class JEP458 {
+    public static void main(String[] args) {
+        System.out.println(new Greetings().greet("World"));
+    }
+}
+```
+
+```shell
+$ java JEP458.java
+Hello, World!
+```
+
+```java
+switch (ball) {
+    case RedBall _   -> process(ball);    // Unnamed pattern variable
+    case BlueBall _  -> process(ball);    // Unnamed pattern variable
+    case GreenBall _ -> stopProcessing(); // Unnamed pattern variable
+}
+```
