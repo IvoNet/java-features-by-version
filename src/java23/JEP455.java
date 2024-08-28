@@ -79,13 +79,14 @@ public class JEP455 {
         }
 
         // new way with pattern matching
-        for (int j = 0; j < 43; j++) {
-            switch (j) {
-                case 0 -> System.out.println("j is 0");
-                case 1 -> System.out.println("j is 1");
-                case int y when y > 10 && y < 40 -> System.out.println("Status is between 10 and 40: " + y);
-                case int y when y > 40 -> System.out.println("Status is greater than 40: " + y);
-                case int y -> System.out.println("Status is unknown: " + y);
+        for (int idx = 0; idx < 43; idx++) {
+            switch (idx) {
+                case 0 -> System.out.println("idx is 0");
+                case 1 -> System.out.println("idx is 1");
+                case int y when y > 10 && y < 40 -> System.out.println("between 10 and 40: " + y);
+                case int y when y == 42 -> System.out.println("The Answer!");
+                case int y when y > 40 -> System.out.println("Greater than 40: " + y);
+                case int y -> System.out.println("If none other match (default): " + y);
             }
         }
 

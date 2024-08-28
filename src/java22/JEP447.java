@@ -1,13 +1,18 @@
 //$ java --enable-preview --source 22 JEP447.java
+//JEP 447: Statements before super(...) (Preview)
 //1) Value must be positive
 //2) non-positive value
 //3) non-positive value
+//Public key cannot be null
+//key = [112, 117, 98, 108, 105, 99, 75, 101, 121]
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class JEP447 {
 
     public static void main(String[] args) {
+        System.out.println("JEP 447: Statements before super(...) (Preview)");
         // first example shows that we faile late which is not what we want, but we
         // don't have much choice as the super statement must be the first statement
         // in the constructor
@@ -32,6 +37,14 @@ public class JEP447 {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+
+        // Forth Example: a lot more is happening before the super statement
+        try {
+            new Sub(new Certificate(null));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        new Sub(new Certificate("publicKey"));
     }
 }
 
@@ -75,5 +88,41 @@ class PositiveBigInteger3 extends BigInteger {
         if (value <= 0)
             throw new IllegalArgumentException("3) non-positive value");
         super(String.valueOf(value));
+    }
+}
+
+class Certificate {
+    private final String publicKey;
+
+    public Certificate(String publicKey) {
+        this.publicKey = publicKey;
+    }
+
+    public String getPublicKey() {
+        return this.publicKey;
+    }
+}
+
+class Super {
+    private final byte[] key;
+
+    public Super(byte[] key) {
+        this.key = key;
+        System.out.println("key = " + Arrays.toString(key));;
+    }
+
+    public byte[] getKey() {
+        return this.key;
+    }
+}
+
+class Sub extends Super {
+    public Sub(Certificate certificate) {
+        var publicKey = certificate.getPublicKey();
+        if (publicKey == null) {
+            throw new IllegalArgumentException("Public key cannot be null");
+        }
+        final byte[] key = publicKey.getBytes();
+        super(key);
     }
 }

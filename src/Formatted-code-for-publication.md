@@ -1,4 +1,78 @@
 ```java
+void main() throws IOException {
+    println(new String(Files.readAllBytes(Paths.get("./JEP477.java"))));
+}
+```
+
+
+```java
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+```
+
+
+```java
+//Replace the import statements with the import module statement
+//import java.util.Map;
+//import java.util.function.Function;
+//import java.util.stream.Collectors;
+//import java.util.stream.Stream;
+import module java.base;
+public class JEP476 {
+    public static void main(String[] args) {
+        String[] fruits = new String[] { "apple", "berry", "citrus" };
+        Map<String, String> m = Stream.of(fruits).collect(
+                Collectors.toMap(s -> s.toUpperCase().substring(0,1), Function.identity()));
+        System.out.println(m);
+    }
+}
+
+```
+
+
+```java
+for (int idx = 0; idx < 43; idx++) {
+    switch (idx) {
+        case 0 -> System.out.println("j is 0");
+        case 1 -> System.out.println("j is 1");
+        case int y when y > 10 && y < 40 -> System.out.println("Status is between 10 and 40: " + y);
+        case int y when y == 42 -> System.out.println("The Answer!");
+        case int y when y > 40 -> System.out.println("Status is greater than 40: " + y);
+        case int y -> System.out.println("Status is unknown: " + y);
+    }
+}
+
+```
+
+
+```java
+class Super {
+    public Super() {
+        this.methodToOverride();
+    }
+    void methodToOverride() {
+        System.out.println("Super method.");
+    }
+}
+
+class Sub extends Super {
+    private final String name;
+    public Sub(String name) {
+        this.name = name;
+        super();
+    }
+    @Override
+    void methodToOverride() {
+        System.out.println("Sub method: " + name);
+    }
+}
+```
+
+
+```java
 import java.text.MessageFormat;
 
 import static java.lang.System.out;
